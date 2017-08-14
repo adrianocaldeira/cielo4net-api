@@ -46,10 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardToken.cs" />
     <Compile Include="CieloEcommerce.cs" />
     <Compile Include="Converters\CreditCardBrandConverter.cs" />
     <Compile Include="Converters\CustomerIdentityTypeConverter.cs" />
     <Compile Include="Converters\CustomerStatusConverter.cs" />
+    <Compile Include="Converters\DebitCardBrandConverter.cs" />
     <Compile Include="Converters\PaymentInterestConverter.cs" />
     <Compile Include="Converters\PaymentTypeConverter.cs" />
     <Compile Include="CreditCard.cs" />
@@ -58,6 +60,8 @@
     <Compile Include="CustomerAddress.cs" />
     <Compile Include="CustomerIdentityType.cs" />
     <Compile Include="CustomerStatus.cs" />
+    <Compile Include="DebitCard.cs" />
+    <Compile Include="DebitCardBrand.cs" />
     <Compile Include="Environment.cs" />
     <Compile Include="IEnvironment.cs" />
     <Compile Include="Merchant.cs" />

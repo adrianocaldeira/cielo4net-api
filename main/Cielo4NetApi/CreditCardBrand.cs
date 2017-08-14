@@ -1,7 +1,7 @@
 namespace Cielo4NetApi
 {
     /// <summary>
-    ///     Bandeira do cartão
+    ///     Bandeira para cartão de crédito
     /// </summary>
     public enum CreditCardBrand
     {
