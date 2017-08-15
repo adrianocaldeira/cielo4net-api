@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
     <Compile Include="CardToken.cs" />
     <Compile Include="CieloEcommerce.cs" />
     <Compile Include="Converters\CreditCardBrandConverter.cs" />
@@ -55,21 +56,21 @@
     <Compile Include="Converters\PaymentInterestConverter.cs" />
     <Compile Include="Converters\PaymentTypeConverter.cs" />
     <Compile Include="CreditCard.cs" />
-    <Compile Include="CreditCardBrand.cs" />
+    <Compile Include="Enumerators\CreditCardBrand.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="CustomerAddress.cs" />
     <Compile Include="CustomerIdentityType.cs" />
     <Compile Include="CustomerStatus.cs" />
     <Compile Include="DebitCard.cs" />
     <Compile Include="DebitCardBrand.cs" />
     <Compile Include="Environment.cs" />
-    <Compile Include="IEnvironment.cs" />
+    <Compile Include="Link.cs" />
     <Compile Include="Merchant.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="PaymentInterest.cs" />
     <Compile Include="PaymentType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CieloEcommerceBase.cs" />
+    <Compile Include="RecurrentPayment.cs" />
     <Compile Include="Sale.cs" />
   </ItemGroup>
   <ItemGroup>

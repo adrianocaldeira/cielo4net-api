@@ -3,7 +3,7 @@ namespace Cielo4NetApi
     /// <summary>
     ///     Endereço do comprador
     /// </summary>
-    public class CustomerAddress
+    public class Address
     {
         /// <summary>
         ///     Endereço do Comprador.

@@ -15,10 +15,14 @@ namespace Cielo4NetApi
         public string Name { get; set; }
 
         /// <summary>
-        ///     Status de cadastro do comprador na loja
+        ///     Email do Comprador.
         /// </summary>
-        [JsonConverter(typeof(CustomerStatusConverter))]
-        public CustomerStatus Status { get; set; }
+        public string Email { get; set; }
+
+        /// <summary>
+        ///     Data de nascimento do Comprador.
+        /// </summary>
+        public DateTime Birthdate { get; set; }
 
         /// <summary>
         ///     Número do RG, CPF ou CNPJ do Cliente.
@@ -32,23 +36,19 @@ namespace Cielo4NetApi
         public CustomerIdentityType IdentityType { get; set; }
 
         /// <summary>
-        ///     Email do Comprador.
-        /// </summary>
-        public string Email { get; set; }
-
-        /// <summary>
-        ///     Data de nascimento do Comprador.
-        /// </summary>
-        public DateTime Birthdate { get; set; }
-
-        /// <summary>
         ///     Endereço do comprador
         /// </summary>
-        public CustomerAddress Address { get; set; }
+        public Address Address { get; set; }
 
         /// <summary>
         ///     Endereço de entrega do comprador
         /// </summary>
-        public CustomerAddress DeliveryAddress { get; set; }
+        public Address DeliveryAddress { get; set; }
+
+        /// <summary>
+        ///     Status de cadastro do comprador na loja
+        /// </summary>
+        [JsonConverter(typeof(CustomerStatusConverter))]
+        public CustomerStatus Status { get; set; }
     }
 }

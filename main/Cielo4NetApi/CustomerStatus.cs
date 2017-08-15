@@ -6,6 +6,11 @@ namespace Cielo4NetApi
     public enum CustomerStatus
     {
         /// <summary>
+        ///     Nenhum
+        /// </summary>
+        None,
+
+        /// <summary>
         ///     Novo
         /// </summary>
         New,

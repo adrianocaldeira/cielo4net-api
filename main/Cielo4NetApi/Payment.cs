@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Cielo4NetApi.Converters;
 using Newtonsoft.Json;
 
@@ -52,7 +54,7 @@ namespace Cielo4NetApi
         ///     Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).
         /// </summary>
         [JsonConverter(typeof(PaymentInterestConverter))]
-        public PaymentInterestConverter Interest { get; set; }
+        public PaymentInterest Interest { get; set; }
 
         /// <summary>
         ///     Booleano que identifica que a autorização deve ser com captura automática.
@@ -63,5 +65,37 @@ namespace Cielo4NetApi
         ///     Define se o comprador será direcionado ao banco emissor para autenticação do cartão
         /// </summary>
         public bool Authenticate { get; set; }
+        public bool Recurrent { get; set; }
+        public RecurrentPayment RecurrentPayment { get; set; }
+        public CreditCard CreditCard { get; set; }
+        public DebitCard DebitCard { get; set; }
+        [JsonProperty("Tid")]
+        public string TransactionId { get; set; }
+        public string ProofOfSale { get; set; }
+        public string AuthorizationCode { get; set; }
+        public string SoftDescriptor { get; set; }
+        public string ReturnUrl { get; set; }
+        [JsonProperty("PaymentId")]
+        public string Id { get; set; }
+        public string ReceivedDate { get; set; }
+        public int CapturedAmount { get; set; }
+        public string CapturedDate { get; set; }
+        public string Country { get; set; }
+        public string ReturnCode { get; set; }
+        public string ReturnMessage { get; set; }
+        public string Status { get; set; }
+        public List<Link> Links { get; set; }
+        public DateTime ExpirationDate { get; set; }
+        public string Url { get; set; }
+        public string Number { get; set; }
+        public string BarCodeNumber { get; set; }
+        public string DigitableLine { get; set; }
+        public string Address { get; set; }
+        public string BoletoNumber { get; set; }
+        public string Assignor { get; set; }
+        public string Demonstrative { get; set; }
+        public string Identification { get; set; }
+        public string Instructions { get; set; }
+        public string AuthenticationUrl { get; set; }
     }
-}
+}   

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Cielo4NetApi.Converters;
+﻿using Cielo4NetApi.Converters;
+using Cielo4NetApi.Enumerators;
 using Newtonsoft.Json;
 
 namespace Cielo4NetApi
@@ -20,15 +16,23 @@ namespace Cielo4NetApi
         ///     Número do Cartão do Comprador.
         /// </summary>
         public string CardNumber { get; set; }
-        
+
         /// <summary>
         ///     Token de identificação do Cartão.
         /// </summary>
         [JsonProperty("CardToken")]
         public string Token { get; set; }
 
+        /// <summary>
+        /// </summary>
         public string CustomerName { get; set; }
+
+        /// <summary>
+        /// </summary>
         public string ExpirationDate { get; set; }
+
+        /// <summary>
+        /// </summary>
         public string Holder { get; set; }
     }
 }

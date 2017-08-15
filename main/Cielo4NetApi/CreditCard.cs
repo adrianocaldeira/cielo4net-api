@@ -1,4 +1,5 @@
 ﻿using Cielo4NetApi.Converters;
+using Cielo4NetApi.Enumerators;
 using Newtonsoft.Json;
 
 namespace Cielo4NetApi
@@ -19,17 +20,12 @@ namespace Cielo4NetApi
         public string Holder { get; set; }
 
         /// <summary>
-        ///     Token de identificação do Cartão.
-        /// </summary>
-        public string CardToken { get; set; }
-
-        /// <summary>
         ///     Data de validade impresso no cartão.
         /// </summary>
         public string ExpirationDate { get; set; }
 
         /// <summary>
-        ///     Código de segurança impresso no verso do cartão - Ver Anexo.
+        ///     Código de segurança impresso no verso do cartão
         /// </summary>
         public string SecurityCode { get; set; }
 
@@ -43,5 +39,10 @@ namespace Cielo4NetApi
         /// </summary>
         [JsonConverter(typeof(CreditCardBrandConverter))]
         public CreditCardBrand Brand { get; set; }
+
+        /// <summary>
+        ///     Token de identificação do Cartão.
+        /// </summary>
+        public string CardToken { get; set; }
     }
 }

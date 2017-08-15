@@ -1,4 +1,5 @@
 ﻿using System;
+using Cielo4NetApi.Enumerators;
 using Newtonsoft.Json;
 
 namespace Cielo4NetApi.Converters

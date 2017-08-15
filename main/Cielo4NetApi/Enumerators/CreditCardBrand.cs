@@ -1,4 +1,4 @@
-namespace Cielo4NetApi
+namespace Cielo4NetApi.Enumerators
 {
     /// <summary>
     ///     Bandeira para cartão de crédito

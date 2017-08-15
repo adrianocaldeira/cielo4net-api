@@ -30,7 +30,7 @@ namespace Cielo4NetApi
         {
             var request = new RestRequest(resource, method)
             {
-                JsonSerializer = new CieloJsonSerializer()
+                //JsonSerializer = new CieloJsonSerializer()
             };
 
             request.AddHeader("RequestId", requestId.ToString());

@@ -3,7 +3,7 @@
     /// <summary>
     ///     Ambiente
     /// </summary>
-    public class Environment : IEnvironment
+    public class Environment
     {
         /// <summary>
         ///     Inicializa uma nova instância da classe <see cref="Environment" />

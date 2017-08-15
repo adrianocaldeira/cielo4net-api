@@ -24,6 +24,9 @@ namespace Cielo4NetApi.Converters
                 case CustomerStatus.Existing:
                     writer.WriteValue("EXISTING");
                     break;
+                case CustomerStatus.None:
+                    writer.WriteValue("");
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

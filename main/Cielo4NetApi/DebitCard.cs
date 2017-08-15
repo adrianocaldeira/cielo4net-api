@@ -21,7 +21,7 @@ namespace Cielo4NetApi
         public string ExpirationDate { get; set; }
 
         /// <summary>
-        ///     Código de segurança impresso no verso do cartão - Ver Anexo.
+        ///     Código de segurança impresso no verso do cartão
         /// </summary>
         public string SecurityCode { get; set; }
         

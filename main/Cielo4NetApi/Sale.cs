@@ -1,4 +1,6 @@
-﻿namespace Cielo4NetApi
+﻿using System.Collections.Generic;
+
+namespace Cielo4NetApi
 {
     /// <summary>
     ///     Venda
@@ -19,5 +21,18 @@
         ///     Pagamento
         /// </summary>
         public Payment Payment { get; set; }
+    }
+
+    public class SaleResponse
+    {
+        public string Status { get; set; }
+        public string ReasonCode { get; set; }
+        public string ReasonMessage { get; set; }
+        public string ProviderReturnCode { get; set; }
+        public string ProviderReturnMessage { get; set; }
+        public string ReturnCode { get; set; }
+        public string ReturnMessage { get; set; }
+        public string AuthenticationUrl { get; set; }
+        public List<Link> Links { get; set; }
     }
 }
