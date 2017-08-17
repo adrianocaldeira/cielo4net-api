@@ -36,7 +36,8 @@ namespace Cielo4NetApi
                         SecurityCode = "123",
                         Brand = CreditCardBrand.Visa,
                         SaveCard = true
-                    }
+                    },
+                    Capture = true
                 },
                 Customer = new Customer
                 {

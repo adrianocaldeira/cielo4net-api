@@ -54,6 +54,8 @@
     <Compile Include="Converters\CreditCardExpirationDateConverter.cs" />
     <Compile Include="Converters\DateConverter.cs" />
     <Compile Include="Converters\DecimalToIntegerConverter.cs" />
+    <Compile Include="Converters\PaymentReturnConverter.cs" />
+    <Compile Include="Converters\PaymentStatusConverter.cs" />
     <Compile Include="CreditCard.cs" />
     <Compile Include="Enumerators\CreditCardBrand.cs" />
     <Compile Include="Customer.cs" />
@@ -70,6 +72,8 @@
     <Compile Include="Payment.cs" />
     <Compile Include="Enumerators\PaymentInterest.cs" />
     <Compile Include="Enumerators\PaymentType.cs" />
+    <Compile Include="PaymentReturn.cs" />
+    <Compile Include="PaymentStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CieloEcommerceBase.cs" />
     <Compile Include="RecurrentPayment.cs" />

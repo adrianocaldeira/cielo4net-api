@@ -88,9 +88,11 @@ namespace Cielo4NetApi
         public decimal? CapturedAmount { get; set; }
         public DateTime? CapturedDate { get; set; }
         public string Country { get; set; }
-        public string ReturnCode { get; set; }
-        public string ReturnMessage { get; set; }
-        public string Status { get; set; }
+        [JsonProperty("ReturnCode")]
+        [JsonConverter(typeof(PaymentReturnConverter))]
+        public PaymentReturn Return { get; set; }
+        [JsonConverter(typeof(PaymentStatusConverter))]
+        public PaymentStatus Status { get; set; }
         public List<Link> Links { get; set; }
         public DateTime? ExpirationDate { get; set; }
         public string Url { get; set; }

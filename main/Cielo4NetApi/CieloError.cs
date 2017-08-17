@@ -1,5 +1,9 @@
 ﻿namespace Cielo4NetApi
 {
+    /// <summary>
+    ///     Erros apontados pela Cielo (para maiores informações consulte
+    ///     http://developercielo.github.io/Webservice-3.0/#códigos-de-erros-da-api)
+    /// </summary>
     public class CieloError
     {
         public CieloError(int code, string message)
