@@ -1,23 +1,22 @@
-namespace Cielo4NetApi
+using System.Runtime.Serialization;
+
+namespace Cielo4NetApi.Enumerators
 {
     /// <summary>
     ///     Tipo de identificação do comprador
     /// </summary>
-    public enum CustomerIdentityType
+    public enum IdentityType
     {
-        /// <summary>
-        ///     Nenhuma
-        /// </summary>
-        None,
-
         /// <summary>
         ///     CPF
         /// </summary>
+        [EnumMember(Value = "CPF")]
         Cpf,
 
         /// <summary>
         ///     CNPJ
         /// </summary>
+        [EnumMember(Value = "CNPJ")]
         Cnpj
     }
 }

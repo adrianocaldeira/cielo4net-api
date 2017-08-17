@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,28 +50,34 @@
     <Compile Include="Address.cs" />
     <Compile Include="CardToken.cs" />
     <Compile Include="CieloEcommerce.cs" />
-    <Compile Include="Converters\CreditCardBrandConverter.cs" />
-    <Compile Include="Converters\CustomerIdentityTypeConverter.cs" />
-    <Compile Include="Converters\CustomerStatusConverter.cs" />
-    <Compile Include="Converters\DebitCardBrandConverter.cs" />
-    <Compile Include="Converters\PaymentInterestConverter.cs" />
-    <Compile Include="Converters\PaymentTypeConverter.cs" />
+    <Compile Include="CieloError.cs" />
+    <Compile Include="Converters\CreditCardExpirationDateConverter.cs" />
+    <Compile Include="Converters\DateConverter.cs" />
+    <Compile Include="Converters\DecimalToIntegerConverter.cs" />
     <Compile Include="CreditCard.cs" />
     <Compile Include="Enumerators\CreditCardBrand.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="CustomerIdentityType.cs" />
+    <Compile Include="Enumerators\IdentityType.cs" />
     <Compile Include="CustomerStatus.cs" />
     <Compile Include="DebitCard.cs" />
-    <Compile Include="DebitCardBrand.cs" />
+    <Compile Include="Enumerators\DebitCardBrand.cs" />
+    <Compile Include="Enumerators\Currency.cs" />
+    <Compile Include="Enumerators\Provider.cs" />
     <Compile Include="Environment.cs" />
+    <Compile Include="Helpers\NumberHelper.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="Merchant.cs" />
     <Compile Include="Payment.cs" />
-    <Compile Include="PaymentInterest.cs" />
-    <Compile Include="PaymentType.cs" />
+    <Compile Include="Enumerators\PaymentInterest.cs" />
+    <Compile Include="Enumerators\PaymentType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CieloEcommerceBase.cs" />
     <Compile Include="RecurrentPayment.cs" />
+    <Compile Include="Request\AbstractSaleRequest.cs" />
+    <Compile Include="Request\CieloEcommerceResponse.cs" />
+    <Compile Include="CieloJsonSerializer.cs" />
+    <Compile Include="Request\CieloRequestException.cs" />
+    <Compile Include="Request\CreateSaleRequest.cs" />
     <Compile Include="Sale.cs" />
   </ItemGroup>
   <ItemGroup>

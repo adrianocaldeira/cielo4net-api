@@ -1,6 +1,8 @@
 using System;
 using Cielo4NetApi.Converters;
+using Cielo4NetApi.Enumerators;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Cielo4NetApi
 {
@@ -22,7 +24,7 @@ namespace Cielo4NetApi
         /// <summary>
         ///     Data de nascimento do Comprador.
         /// </summary>
-        public DateTime Birthdate { get; set; }
+        public DateTime? Birthdate { get; set; }
 
         /// <summary>
         ///     Número do RG, CPF ou CNPJ do Cliente.
@@ -32,8 +34,8 @@ namespace Cielo4NetApi
         /// <summary>
         ///     Tipo de documento de identificação do comprador (CFP/CNPJ).
         /// </summary>
-        [JsonConverter(typeof(CustomerIdentityTypeConverter))]
-        public CustomerIdentityType IdentityType { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public IdentityType? IdentityType { get; set; }
 
         /// <summary>
         ///     Endereço do comprador
@@ -48,7 +50,7 @@ namespace Cielo4NetApi
         /// <summary>
         ///     Status de cadastro do comprador na loja
         /// </summary>
-        [JsonConverter(typeof(CustomerStatusConverter))]
-        public CustomerStatus Status { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public CustomerStatus? Status { get; set; }
     }
 }

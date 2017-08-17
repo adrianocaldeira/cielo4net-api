@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 namespace Cielo4NetApi
 {
     /// <summary>
@@ -6,18 +8,15 @@ namespace Cielo4NetApi
     public enum CustomerStatus
     {
         /// <summary>
-        ///     Nenhum
-        /// </summary>
-        None,
-
-        /// <summary>
         ///     Novo
         /// </summary>
+        [EnumMember(Value = "NEW")]
         New,
 
         /// <summary>
         ///     Existente
         /// </summary>
+        [EnumMember(Value = "EXISTING")]
         Existing
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Cielo4NetApi.Converters;
+using Cielo4NetApi.Enumerators;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Cielo4NetApi
 {
@@ -24,11 +26,11 @@ namespace Cielo4NetApi
         ///     Código de segurança impresso no verso do cartão
         /// </summary>
         public string SecurityCode { get; set; }
-        
+
         /// <summary>
         ///     Bandeira do cartão
         /// </summary>
-        [JsonConverter(typeof(DebitCardBrandConverter))]
+        [JsonConverter(typeof(StringEnumConverter))]
         public DebitCardBrand Brand { get; set; }
     }
 }

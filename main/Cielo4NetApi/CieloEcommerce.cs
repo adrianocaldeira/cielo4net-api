@@ -1,4 +1,7 @@
-﻿namespace Cielo4NetApi
+﻿using Cielo4NetApi.Request;
+using RestSharp;
+
+namespace Cielo4NetApi
 {
     /// <summary>
     /// 
@@ -19,9 +22,11 @@
         public Merchant Merchant { get; }
         public Environment Environment { get; }
 
-        public void CreateSale(Sale sale)
+        public CieloEcommerceResponse<Sale> CreateSale(Sale sale)
         {
-            
+            var createSaleRequest = new CreateSaleRequest(Merchant, Environment);
+
+            return createSaleRequest.Execute(sale);
         }
     }
 }

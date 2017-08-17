@@ -1,12 +1,11 @@
 ﻿using System;
+using Cielo4NetApi.Helpers;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Cielo4NetApi.Converters
 {
-    /// <summary>
-    ///     Conversor JSON do status do comprador
-    /// </summary>
-    public class CustomerStatusConverter : JsonConverter
+    internal class DecimalToIntegerConverter : JsonConverter
     {
         /// <summary>Writes the JSON representation of the object.</summary>
         /// <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
@@ -14,21 +13,11 @@ namespace Cielo4NetApi.Converters
         /// <param name="serializer">The calling serializer.</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var customerStatus = (CustomerStatus) value;
-
-            switch (customerStatus)
+            if (value != null)
             {
-                case CustomerStatus.New:
-                    writer.WriteValue("NEW");
-                    break;
-                case CustomerStatus.Existing:
-                    writer.WriteValue("EXISTING");
-                    break;
-                case CustomerStatus.None:
-                    writer.WriteValue("");
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                var newValue = NumberHelper.DecimalToInteger(value);
+
+                JToken.FromObject(newValue).WriteTo(writer);
             }
         }
 
@@ -38,24 +27,26 @@ namespace Cielo4NetApi.Converters
         /// <param name="existingValue">The existing value of object being read.</param>
         /// <param name="serializer">The calling serializer.</param>
         /// <returns>The object value.</returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
-            JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            var enumString = (string) reader.Value;
+            if (reader.Value == null)
+            {
+                return null;
+            }
 
-            return Enum.Parse(typeof(CustomerStatus), enumString, true);
+            return NumberHelper.IntegerToDecimal(reader.Value);
         }
 
         /// <summary>
-        ///     Determines whether this instance can convert the specified object type.
+        /// Determines whether this instance can convert the specified object type.
         /// </summary>
         /// <param name="objectType">Type of the object.</param>
         /// <returns>
-        ///     <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+        /// 	<c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
         /// </returns>
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(string);
+            throw new NotImplementedException();
         }
     }
 }

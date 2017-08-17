@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "main", "main", "{27165106-7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cielo4NetApi", "main\Cielo4NetApi\Cielo4NetApi.csproj", "{B6A4B108-B88D-4FAF-B3A3-C355E7D1CDCC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BA213241-AA7D-40B8-9113-DB595B48718C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cielo4NetApi", "test\Cielo4NetApi\Cielo4NetApi.csproj", "{96554E6F-A35A-40FC-9B3B-46CB68E69CED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +21,16 @@ Global
 		{B6A4B108-B88D-4FAF-B3A3-C355E7D1CDCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6A4B108-B88D-4FAF-B3A3-C355E7D1CDCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6A4B108-B88D-4FAF-B3A3-C355E7D1CDCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96554E6F-A35A-40FC-9B3B-46CB68E69CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96554E6F-A35A-40FC-9B3B-46CB68E69CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96554E6F-A35A-40FC-9B3B-46CB68E69CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96554E6F-A35A-40FC-9B3B-46CB68E69CED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6A4B108-B88D-4FAF-B3A3-C355E7D1CDCC} = {27165106-788B-4850-A179-8B457E360CBC}
+		{96554E6F-A35A-40FC-9B3B-46CB68E69CED} = {BA213241-AA7D-40B8-9113-DB595B48718C}
 	EndGlobalSection
 EndGlobal

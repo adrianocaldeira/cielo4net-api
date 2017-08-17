@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 namespace Cielo4NetApi.Enumerators
 {
     /// <summary>
@@ -5,44 +7,21 @@ namespace Cielo4NetApi.Enumerators
     /// </summary>
     public enum CreditCardBrand
     {
-        /// <summary>
-        ///     Visa
-        /// </summary>
+        [EnumMember(Value = "Visa")]
         Visa,
-
-        /// <summary>
-        ///     Master
-        /// </summary>
+        [EnumMember(Value = "Master")]
         Master,
-
-        /// <summary>
-        ///     Amex
-        /// </summary>
+        [EnumMember(Value = "Amex")]
         Amex,
-
-        /// <summary>
-        ///     Elo
-        /// </summary>
+        [EnumMember(Value = "Elo")]
         Elo,
-
-        /// <summary>
-        ///     Aura
-        /// </summary>
+        [EnumMember(Value = "Aura")]
         Aura,
-
-        /// <summary>
-        ///     JCB
-        /// </summary>
-        Jcb,
-
-        /// <summary>
-        ///     Diners
-        /// </summary>
+        [EnumMember(Value = "JCB")]
+        JCB,
+        [EnumMember(Value = "Diners")]
         Diners,
-
-        /// <summary>
-        ///     Discover
-        /// </summary>
+        [EnumMember(Value = "Discover")]
         Discover
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Cielo4NetApi.Converters;
 using Cielo4NetApi.Enumerators;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Cielo4NetApi
 {
@@ -9,7 +10,7 @@ namespace Cielo4NetApi
         /// <summary>
         ///     Bandeira do cartão
         /// </summary>
-        [JsonConverter(typeof(CreditCardBrandConverter))]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CreditCardBrand Brand { get; set; }
 
         /// <summary>

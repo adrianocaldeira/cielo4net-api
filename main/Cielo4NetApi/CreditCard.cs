@@ -1,6 +1,8 @@
-﻿using Cielo4NetApi.Converters;
+﻿using System;
+using Cielo4NetApi.Converters;
 using Cielo4NetApi.Enumerators;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Cielo4NetApi
 {
@@ -19,10 +21,8 @@ namespace Cielo4NetApi
         /// </summary>
         public string Holder { get; set; }
 
-        /// <summary>
-        ///     Data de validade impresso no cartão.
-        /// </summary>
-        public string ExpirationDate { get; set; }
+        [JsonConverter(typeof(CreditCardExpirationDateConverter))]
+        public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         ///     Código de segurança impresso no verso do cartão
@@ -32,17 +32,17 @@ namespace Cielo4NetApi
         /// <summary>
         ///     Booleano que identifica se o cartão será salvo para gerar o CardToken.
         /// </summary>
-        public bool SaveCard { get; set; }
+        public bool? SaveCard { get; set; }
 
         /// <summary>
         ///     Bandeira do cartão
         /// </summary>
-        [JsonConverter(typeof(CreditCardBrandConverter))]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CreditCardBrand Brand { get; set; }
 
         /// <summary>
         ///     Token de identificação do Cartão.
         /// </summary>
-        public string CardToken { get; set; }
+        public Guid? CardToken { get; set; }
     }
 }
