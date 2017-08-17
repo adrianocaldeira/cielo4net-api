@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using RestSharp;
+﻿using RestSharp;
 
 namespace Cielo4NetApi.Request
 {
@@ -9,23 +8,16 @@ namespace Cielo4NetApi.Request
         {
         }
 
-        public override CieloEcommerceResponse<Sale> Execute(Sale sale)
+        public override CieloResponse<Sale> Execute(Sale sale)
         {
-            var request = new RestRequest("1/sales/", Method.POST);
-
-            var json = JsonConvert.SerializeObject(sale, Formatting.Indented, new JsonSerializerSettings
+            var request = new RestRequest("1/sales/", Method.POST)
             {
-                NullValueHandling = NullValueHandling.Ignore
-            });
+                JsonSerializer = new CieloJsonSerializer()
+            };
 
-            //request.AddParameter("application/json", json, ParameterType.RequestBody);
-
-            request.JsonSerializer = new CieloJsonSerializer();
             request.AddJsonBody(sale);
             
-            var response = Send(new RestClient(Environment.ApiUrl), request);
-
-            return response;
+            return Send(new RestClient(Environment.ApiUrl), request);
         }
     }
 }

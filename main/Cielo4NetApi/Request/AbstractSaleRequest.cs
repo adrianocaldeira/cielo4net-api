@@ -16,9 +16,9 @@ public abstract class AbstractSaleRequest<TRequest, TResponse> where TResponse :
         public Merchant Merchant { get; }
         public Environment Environment { get; }
 
-        public abstract CieloEcommerceResponse<TResponse> Execute(TRequest parameter);
+        public abstract CieloResponse<TResponse> Execute(TRequest parameter);
 
-        public CieloEcommerceResponse<TResponse> Send(RestClient client, RestRequest request)
+        public CieloResponse<TResponse> Send(RestClient client, RestRequest request)
         {
             request.AddHeader("User-Agent", "CieloEcommerce/3.0 .NET SDK");
             request.AddHeader("MerchantId", Merchant.Id);
@@ -30,7 +30,7 @@ public abstract class AbstractSaleRequest<TRequest, TResponse> where TResponse :
             return Parse((int)response.StatusCode, response.Content);
         }
 
-        private static CieloEcommerceResponse<TResponse> Parse(int statusCode, string content)
+        private static CieloResponse<TResponse> Parse(int statusCode, string content)
         {
             var response = default(TResponse);
             var errors = new List<CieloError>();
@@ -51,7 +51,7 @@ public abstract class AbstractSaleRequest<TRequest, TResponse> where TResponse :
                     break;
             }
 
-            return new CieloEcommerceResponse<TResponse>(response, errors);
+            return new CieloResponse<TResponse>(response, errors);
         }
     }
 }

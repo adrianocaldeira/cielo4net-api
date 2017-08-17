@@ -1,4 +1,5 @@
-﻿using Cielo4NetApi.Converters;
+﻿using System;
+using Cielo4NetApi.Converters;
 using Cielo4NetApi.Enumerators;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -28,9 +29,8 @@ namespace Cielo4NetApi
         /// </summary>
         public string CustomerName { get; set; }
 
-        /// <summary>
-        /// </summary>
-        public string ExpirationDate { get; set; }
+        [JsonConverter(typeof(CreditCardExpirationDateConverter))]
+        public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         /// </summary>

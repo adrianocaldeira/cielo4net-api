@@ -45,5 +45,18 @@ namespace Cielo4NetApi
                 }
             });
         }
+
+        [Test]
+        public void CreateCardToken()
+        {
+            var cieloResponse = Instance.CreateCardToken(new CardToken
+            {
+                Brand = CreditCardBrand.Visa,
+                CardNumber = "1234123412341231",
+                CustomerName = "Comprador Teste Cielo",
+                ExpirationDate = new DateTime(2023, 1, 1),
+                Holder = "Comprador T Cielo"
+            });
+        }
     }
 }

@@ -75,12 +75,12 @@
     <Compile Include="PaymentReturn.cs" />
     <Compile Include="PaymentStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CieloEcommerceBase.cs" />
     <Compile Include="RecurrentPayment.cs" />
     <Compile Include="Request\AbstractSaleRequest.cs" />
-    <Compile Include="Request\CieloEcommerceResponse.cs" />
+    <Compile Include="CieloResponse.cs" />
     <Compile Include="CieloJsonSerializer.cs" />
     <Compile Include="Request\CieloRequestException.cs" />
+    <Compile Include="Request\CreateCardTokenRequest.cs" />
     <Compile Include="Request\CreateSaleRequest.cs" />
     <Compile Include="Sale.cs" />
   </ItemGroup>

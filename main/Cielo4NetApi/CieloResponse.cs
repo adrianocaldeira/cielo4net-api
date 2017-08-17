@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Cielo4NetApi.Request
+namespace Cielo4NetApi
 {
-    public class CieloEcommerceResponse<TResponse>
+    public class CieloResponse<TResponse>
     {
-        public CieloEcommerceResponse(TResponse response, IList<CieloError> errors)
+        public CieloResponse(TResponse response, IList<CieloError> errors)
         {
             Response = response;
             Errors = errors;

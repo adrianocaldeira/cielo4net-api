@@ -22,11 +22,18 @@ namespace Cielo4NetApi
         public Merchant Merchant { get; }
         public Environment Environment { get; }
 
-        public CieloEcommerceResponse<Sale> CreateSale(Sale sale)
+        public CieloResponse<Sale> CreateSale(Sale sale)
         {
             var createSaleRequest = new CreateSaleRequest(Merchant, Environment);
 
             return createSaleRequest.Execute(sale);
+        }
+
+        public CieloResponse<CardToken> CreateCardToken(CardToken cardToken)
+        {
+            var createCardTokenRequest = new CreateCardTokenRequest(Merchant, Environment);
+
+            return createCardTokenRequest.Execute(cardToken);
         }
     }
 }
