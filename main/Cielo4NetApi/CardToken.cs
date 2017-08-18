@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Cielo4NetApi.Converters;
 using Cielo4NetApi.Enumerators;
 using Newtonsoft.Json;
@@ -23,7 +24,7 @@ namespace Cielo4NetApi
         ///     Token de identificação do Cartão.
         /// </summary>
         [JsonProperty("CardToken")]
-        public string Token { get; set; }
+        public Guid Token { get; set; }
 
         /// <summary>
         /// </summary>
@@ -35,5 +36,8 @@ namespace Cielo4NetApi
         /// <summary>
         /// </summary>
         public string Holder { get; set; }
+
+        [JsonProperty("Links")]
+        public Link Link { get; set; }
     }
 }

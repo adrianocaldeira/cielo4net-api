@@ -69,6 +69,7 @@
     <Compile Include="Helpers\NumberHelper.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="Merchant.cs" />
+    <Compile Include="MerchantOrder.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Enumerators\PaymentInterest.cs" />
     <Compile Include="Enumerators\PaymentType.cs" />
@@ -82,6 +83,9 @@
     <Compile Include="Request\CieloRequestException.cs" />
     <Compile Include="Request\CreateCardTokenRequest.cs" />
     <Compile Include="Request\CreateSaleRequest.cs" />
+    <Compile Include="Request\QueryMerchantOrderRequest.cs" />
+    <Compile Include="Request\QuerySaleRequest.cs" />
+    <Compile Include="Request\UpdateSaleRequest.cs" />
     <Compile Include="Sale.cs" />
   </ItemGroup>
   <ItemGroup>

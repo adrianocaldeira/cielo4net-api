@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Cielo4NetApi
 {
@@ -10,7 +11,8 @@ namespace Cielo4NetApi
         /// <summary>
         ///     Numero de identificação do Pedido.
         /// </summary>
-        public string MerchantOrderId { get; set; }
+        [JsonProperty("MerchantOrderId")]
+        public string Id { get; set; }
 
         /// <summary>
         ///     Comprador
@@ -25,6 +27,11 @@ namespace Cielo4NetApi
 
     public class SaleResponse
     {
+        /// <summary>
+        /// Numero de identificação do Pedido.
+        /// </summary>
+        [JsonProperty("MerchantOrderId")]
+        public string SaleId { get; set; }
         public string Status { get; set; }
         public string ReasonCode { get; set; }
         public string ReasonMessage { get; set; }
@@ -34,5 +41,6 @@ namespace Cielo4NetApi
         public string ReturnMessage { get; set; }
         public string AuthenticationUrl { get; set; }
         public List<Link> Links { get; set; }
+        
     }
 }

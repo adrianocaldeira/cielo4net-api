@@ -1,4 +1,6 @@
-﻿using Cielo4NetApi.Request;
+﻿using System;
+using System.Collections.Generic;
+using Cielo4NetApi.Request;
 using RestSharp;
 
 namespace Cielo4NetApi
@@ -34,6 +36,41 @@ namespace Cielo4NetApi
             var createCardTokenRequest = new CreateCardTokenRequest(Merchant, Environment);
 
             return createCardTokenRequest.Execute(cardToken);
+        }
+
+        public CieloResponse<Sale> QuerySale(Guid paymentId)
+        {
+            var querySaleRequest = new QuerySaleRequest(Merchant, Environment);
+
+            return querySaleRequest.Execute(paymentId);
+        }
+
+        public CieloResponse<List<MerchantOrder>> QueryMerchantOrder(string merchantOrderId)
+        {
+            var querySaleRequest = new QueryMerchantOrderRequest(Merchant, Environment);
+
+            return querySaleRequest.Execute(merchantOrderId);
+        }
+
+
+        public CieloResponse<SaleResponse> CancelSale(Guid paymentId, decimal? amount = null, decimal? serviceTaxAmount = null)
+        {
+            return UpdateSale("void", paymentId, amount, serviceTaxAmount);
+        }
+
+        public CieloResponse<SaleResponse> CaptureSale(Guid paymentId, decimal? amount = null, decimal? serviceTaxAmount = null)
+        {
+            return UpdateSale("capture", paymentId, amount, serviceTaxAmount);
+        }
+
+        private CieloResponse<SaleResponse> UpdateSale(string type, Guid paymentId, decimal? amount = null, decimal? serviceTaxAmount = null)
+        {
+            var updateSaleRequest = new UpdateSaleRequest(type, Merchant, Environment);
+
+            if (amount.HasValue) updateSaleRequest.WithAmount(amount.Value);
+            if (serviceTaxAmount.HasValue) updateSaleRequest.WithAmount(serviceTaxAmount.Value);
+
+            return updateSaleRequest.Execute(paymentId);
         }
     }
 }

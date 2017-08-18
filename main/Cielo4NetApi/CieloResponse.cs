@@ -5,6 +5,10 @@ namespace Cielo4NetApi
 {
     public class CieloResponse<TResponse>
     {
+        public CieloResponse()
+        {
+        }
+
         public CieloResponse(TResponse response, IList<CieloError> errors)
         {
             Response = response;

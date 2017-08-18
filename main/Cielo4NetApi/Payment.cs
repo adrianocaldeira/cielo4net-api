@@ -82,7 +82,7 @@ namespace Cielo4NetApi
         public string SoftDescriptor { get; set; }
         public string ReturnUrl { get; set; }
         [JsonProperty("PaymentId")]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public DateTime? ReceivedDate { get; set; }
         [JsonConverter(typeof(DecimalToIntegerConverter))]
         public decimal? CapturedAmount { get; set; }
