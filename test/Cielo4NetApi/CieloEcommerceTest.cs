@@ -193,5 +193,196 @@ namespace Cielo4NetApi
             Assert.IsFalse(response.HasErrors, "Não deve conter erros");
             Assert.IsNotNull(response.Response, "Resposta não pode ser nula");
         }
+
+        [Test]
+        public void CaptureSale()
+        {
+            var id = Guid.NewGuid().ToString("N");
+            var saleResponse = Instance.CreateSale(new Sale
+            {
+                Id = id,
+                Payment = new Payment
+                {
+                    Type = PaymentType.CreditCard,
+                    Amount = 157.57M,
+                    Installments = 3,
+                    SoftDescriptor = "123456789ABCD",
+                    CreditCard = new CreditCard
+                    {
+                        CardNumber = "1234123412341231",
+                        Holder = "Adriano H Caldeira",
+                        ExpirationDate = new DateTime(2023, 1, 1),
+                        SecurityCode = "123",
+                        Brand = CreditCardBrand.Visa,
+                        SaveCard = true
+                    }
+                },
+                Customer = new Customer
+                {
+                    Name = "Adriano"
+                }
+            });
+
+            var response = Instance.CaptureSale(saleResponse.Response.Payment.Id);
+
+            Assert.IsFalse(response.HasErrors, "Não deve conter erros");
+            Assert.IsNotNull(response.Response, "Resposta não pode ser nula");
+        }
+
+
+        [Test]
+        public void CaptureSaleWithAmout()
+        {
+            var id = Guid.NewGuid().ToString("N");
+            var saleResponse = Instance.CreateSale(new Sale
+            {
+                Id = id,
+                Payment = new Payment
+                {
+                    Type = PaymentType.CreditCard,
+                    Amount = 157.57M,
+                    Installments = 3,
+                    SoftDescriptor = "123456789ABCD",
+                    CreditCard = new CreditCard
+                    {
+                        CardNumber = "1234123412341231",
+                        Holder = "Adriano H Caldeira",
+                        ExpirationDate = new DateTime(2023, 1, 1),
+                        SecurityCode = "123",
+                        Brand = CreditCardBrand.Visa,
+                        SaveCard = true
+                    }
+                },
+                Customer = new Customer
+                {
+                    Name = "Adriano"
+                }
+            });
+
+            var response = Instance.CaptureSale(saleResponse.Response.Payment.Id, 157.57M);
+
+            Assert.IsFalse(response.HasErrors, "Não deve conter erros");
+            Assert.IsNotNull(response.Response, "Resposta não pode ser nula");
+        }
+
+        [Test]
+        public void CaptureSaleWithAmoutAndServiceTaxAmount()
+        {
+            var id = Guid.NewGuid().ToString("N");
+            var saleResponse = Instance.CreateSale(new Sale
+            {
+                Id = id,
+                Payment = new Payment
+                {
+                    Type = PaymentType.CreditCard,
+                    Amount = 157.57M,
+                    Installments = 3,
+                    SoftDescriptor = "123456789ABCD",
+                    CreditCard = new CreditCard
+                    {
+                        CardNumber = "1234123412341231",
+                        Holder = "Adriano H Caldeira",
+                        ExpirationDate = new DateTime(2023, 1, 1),
+                        SecurityCode = "123",
+                        Brand = CreditCardBrand.Visa,
+                        SaveCard = true
+                    },
+                    ServiceTaxAmount = 12.75M
+                },
+                Customer = new Customer
+                {
+                    Name = "Adriano"
+                }
+            });
+
+            var response = Instance.CaptureSale(saleResponse.Response.Payment.Id, 157.57M, 12.75M);
+
+            Assert.IsFalse(response.HasErrors, "Não deve conter erros");
+            Assert.IsNotNull(response.Response, "Resposta não pode ser nula");
+        }
+
+        [Test]
+        public void QueryRecurrentSale()
+        {
+            var id = Guid.NewGuid().ToString("N");
+            var saleResponse = Instance.CreateSale(new Sale
+            {
+                Id = id,
+                Payment = new Payment
+                {
+                    Type = PaymentType.CreditCard,
+                    Amount = 157.57M,
+                    Installments = 1,
+                    SoftDescriptor = "123456789ABCD",
+                    CreditCard = new CreditCard
+                    {
+                        CardNumber = "1234123412341231",
+                        Holder = "Adriano H Caldeira",
+                        ExpirationDate = new DateTime(2023, 1, 1),
+                        SecurityCode = "123",
+                        Brand = CreditCardBrand.Visa,
+                        SaveCard = true
+                    },
+                    Capture = true,
+                    RecurrentPayment = new RecurrentPayment
+                    {
+                        AuthorizeNow = true, 
+                        EndDate = DateTime.Now.AddYears(1).Date,
+                        Interval = RecurrentPaymentInterval.Quarterly 
+                    } 
+                },
+                Customer = new Customer
+                {
+                    Name = "Adriano"
+                }
+            });
+
+            var response = Instance.QueryRecurrentSale(saleResponse.Response.Payment.RecurrentPayment.Id);
+
+            Assert.IsFalse(response.HasErrors, "Não deve conter erros");
+            Assert.IsNotNull(response.Response, "Resposta não pode ser nula");
+        }
+
+        [Test]
+        public void DeactivateRecurrentSale()
+        {
+            var id = Guid.NewGuid().ToString("N");
+            var saleResponse = Instance.CreateSale(new Sale
+            {
+                Id = id,
+                Payment = new Payment
+                {
+                    Type = PaymentType.CreditCard,
+                    Amount = 157.57M,
+                    Installments = 1,
+                    SoftDescriptor = "123456789ABCD",
+                    CreditCard = new CreditCard
+                    {
+                        CardNumber = "1234123412341231",
+                        Holder = "Adriano H Caldeira",
+                        ExpirationDate = new DateTime(2023, 1, 1),
+                        SecurityCode = "123",
+                        Brand = CreditCardBrand.Visa,
+                        SaveCard = true
+                    },
+                    Capture = true,
+                    RecurrentPayment = new RecurrentPayment
+                    {
+                        AuthorizeNow = true, 
+                        EndDate = DateTime.Now.AddYears(1).Date,
+                        Interval = RecurrentPaymentInterval.Quarterly 
+                    } 
+                },
+                Customer = new Customer
+                {
+                    Name = "Adriano"
+                }
+            });
+
+            var response = Instance.DeactivateRecurrentSale(saleResponse.Response.Payment.RecurrentPayment.Id);
+
+            Assert.IsFalse(response.HasErrors, "Não deve conter erros");
+            Assert.IsNotNull(response.Response, "Resposta não pode ser nula");
+        }
     }
 }

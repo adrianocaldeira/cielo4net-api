@@ -77,13 +77,17 @@
     <Compile Include="PaymentStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecurrentPayment.cs" />
+    <Compile Include="Enumerators\RecurrentPaymentInterval.cs" />
+    <Compile Include="RecurrentSale.cs" />
     <Compile Include="Request\AbstractSaleRequest.cs" />
     <Compile Include="CieloResponse.cs" />
     <Compile Include="CieloJsonSerializer.cs" />
     <Compile Include="Request\CieloRequestException.cs" />
     <Compile Include="Request\CreateCardTokenRequest.cs" />
     <Compile Include="Request\CreateSaleRequest.cs" />
+    <Compile Include="Request\DeactivateRecurrentSaleRequest.cs" />
     <Compile Include="Request\QueryMerchantOrderRequest.cs" />
+    <Compile Include="Request\QueryRecurrentSaleRequest.cs" />
     <Compile Include="Request\QuerySaleRequest.cs" />
     <Compile Include="Request\UpdateSaleRequest.cs" />
     <Compile Include="Sale.cs" />

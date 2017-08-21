@@ -63,14 +63,30 @@ namespace Cielo4NetApi
             return UpdateSale("capture", paymentId, amount, serviceTaxAmount);
         }
 
+        public CieloResponse<RecurrentSale> QueryRecurrentSale(Guid recurrentPaymentId)
+        {
+            var queryRecurrentSaleRequest = new QueryRecurrentSaleRequest(Merchant, Environment);
+            
+            return queryRecurrentSaleRequest.Execute(recurrentPaymentId);
+        }
+
+        public CieloResponse<RecurrentSale> DeactivateRecurrentSale(Guid recurrentPaymentId)
+        {
+            var deactivateRecurrentSaleRequest = new DeactivateRecurrentSaleRequest(Merchant, Environment);
+            
+            return deactivateRecurrentSaleRequest.Execute(recurrentPaymentId);
+        }
+
         private CieloResponse<SaleResponse> UpdateSale(string type, Guid paymentId, decimal? amount = null, decimal? serviceTaxAmount = null)
         {
             var updateSaleRequest = new UpdateSaleRequest(type, Merchant, Environment);
 
             if (amount.HasValue) updateSaleRequest.WithAmount(amount.Value);
-            if (serviceTaxAmount.HasValue) updateSaleRequest.WithAmount(serviceTaxAmount.Value);
+            if (serviceTaxAmount.HasValue) updateSaleRequest.WithServiceTaxAmount(serviceTaxAmount.Value);
 
             return updateSaleRequest.Execute(paymentId);
         }
+
+
     }
 }
