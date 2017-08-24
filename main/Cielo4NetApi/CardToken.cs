@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Cielo4NetApi.Converters;
 using Cielo4NetApi.Enumerators;
 using Newtonsoft.Json;

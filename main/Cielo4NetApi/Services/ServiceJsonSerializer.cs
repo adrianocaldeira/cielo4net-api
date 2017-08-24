@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using RestSharp.Serializers;
 using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
-namespace Cielo4NetApi
+namespace Cielo4NetApi.Services
 {
     public class CieloJsonSerializer : ISerializer
     {

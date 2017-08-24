@@ -1,15 +1,16 @@
 ﻿using System;
+using Cielo4NetApi.Services;
 using RestSharp;
 
 namespace Cielo4NetApi.Request
 {
-    public class QuerySaleRequest : AbstractSaleRequest<Guid, Sale>
+    public class GetSaleRequest : AbstractSaleRequest<Guid, Sale>
     {
-        public QuerySaleRequest(Merchant merchant, Environment environment) : base(merchant, environment)
+        public GetSaleRequest(Merchant merchant, Environment environment) : base(merchant, environment)
         {
         }
 
-        public override CieloResponse<Sale> Execute(Guid id)
+        public override ServiceResponse<Sale> Execute(Guid id)
         {
             var request = new RestRequest("1/sales/" + id.ToString("D"), Method.GET)
             {

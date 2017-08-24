@@ -1,4 +1,5 @@
 ﻿using System;
+using Cielo4NetApi.Services;
 using RestSharp;
 
 namespace Cielo4NetApi.Request
@@ -9,7 +10,7 @@ namespace Cielo4NetApi.Request
         {
         }
 
-        public override CieloResponse<RecurrentSale> Execute(Guid id)
+        public override ServiceResponse<RecurrentSale> Execute(Guid id)
         {
             var request = new RestRequest($"1/RecurrentPayment/{id:D}/Deactivate", Method.PUT)
             {

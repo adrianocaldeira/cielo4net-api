@@ -1,12 +1,12 @@
-﻿namespace Cielo4NetApi
+﻿namespace Cielo4NetApi.Services
 {
     /// <summary>
     ///     Erros apontados pela Cielo (para maiores informações consulte
     ///     http://developercielo.github.io/Webservice-3.0/#códigos-de-erros-da-api)
     /// </summary>
-    public class CieloError
+    public class ServiceError
     {
-        public CieloError(int code, string message)
+        public ServiceError(int code, string message)
         {
             Code = code;
             Message = message;

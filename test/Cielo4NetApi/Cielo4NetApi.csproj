@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CieloEcommerceTest.cs" />
+    <Compile Include="CardTokenServiceTest.cs" />
+    <Compile Include="MerchantOrderServiceTest.cs" />
+    <Compile Include="RecurrentSaleServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaleServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

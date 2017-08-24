@@ -49,8 +49,12 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="CardToken.cs" />
-    <Compile Include="CieloEcommerce.cs" />
-    <Compile Include="CieloError.cs" />
+    <Compile Include="Services\CardTokenService.cs" />
+    <Compile Include="Services\RecurrentSaleService.cs" />
+    <Compile Include="Services\MerchantOrderService.cs" />
+    <Compile Include="Services\SaleService.cs" />
+    <Compile Include="Services\Service.cs" />
+    <Compile Include="Services\ServiceError.cs" />
     <Compile Include="Converters\CreditCardExpirationDateConverter.cs" />
     <Compile Include="Converters\DateConverter.cs" />
     <Compile Include="Converters\DecimalToIntegerConverter.cs" />
@@ -80,15 +84,15 @@
     <Compile Include="Enumerators\RecurrentPaymentInterval.cs" />
     <Compile Include="RecurrentSale.cs" />
     <Compile Include="Request\AbstractSaleRequest.cs" />
-    <Compile Include="CieloResponse.cs" />
-    <Compile Include="CieloJsonSerializer.cs" />
-    <Compile Include="Request\CieloRequestException.cs" />
+    <Compile Include="Services\ServiceResponse.cs" />
+    <Compile Include="Services\ServiceJsonSerializer.cs" />
+    <Compile Include="Services\ServiceRequestException.cs" />
     <Compile Include="Request\CreateCardTokenRequest.cs" />
     <Compile Include="Request\CreateSaleRequest.cs" />
     <Compile Include="Request\DeactivateRecurrentSaleRequest.cs" />
     <Compile Include="Request\QueryMerchantOrderRequest.cs" />
-    <Compile Include="Request\QueryRecurrentSaleRequest.cs" />
-    <Compile Include="Request\QuerySaleRequest.cs" />
+    <Compile Include="Request\GetRecurrentSaleRequest.cs" />
+    <Compile Include="Request\GetSaleRequest.cs" />
     <Compile Include="Request\UpdateSaleRequest.cs" />
     <Compile Include="Sale.cs" />
   </ItemGroup>

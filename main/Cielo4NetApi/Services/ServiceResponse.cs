@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Cielo4NetApi
+namespace Cielo4NetApi.Services
 {
-    public class CieloResponse<TResponse>
+    public class ServiceResponse<TResponse>
     {
-        public CieloResponse()
+        public ServiceResponse()
         {
         }
 
-        public CieloResponse(TResponse response, IList<CieloError> errors)
+        public ServiceResponse(TResponse response, IList<ServiceError> errors)
         {
             Response = response;
             Errors = errors;
         }
 
         public TResponse Response { get; }
-        public IList<CieloError> Errors { get; }
+        public IList<ServiceError> Errors { get; }
         public bool HasErrors => Errors.Any();
     }
 }

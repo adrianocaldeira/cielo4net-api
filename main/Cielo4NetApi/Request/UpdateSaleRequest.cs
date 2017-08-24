@@ -1,5 +1,6 @@
 using System;
 using Cielo4NetApi.Helpers;
+using Cielo4NetApi.Services;
 using RestSharp;
 
 namespace Cielo4NetApi.Request
@@ -27,9 +28,9 @@ namespace Cielo4NetApi.Request
             return this;
         }
 
-        public override CieloResponse<SaleResponse> Execute(Guid id)
+        public override ServiceResponse<SaleResponse> Execute(Guid id)
         {
-            CieloResponse<SaleResponse> saleResponse = null;
+            ServiceResponse<SaleResponse> saleResponse = null;
 
             try
             {

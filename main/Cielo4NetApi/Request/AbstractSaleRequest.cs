@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Cielo4NetApi.Services;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -17,9 +18,9 @@ public abstract class AbstractSaleRequest<TRequest, TResponse> where TResponse :
         public Merchant Merchant { get; }
         public Environment Environment { get; }
 
-        public abstract CieloResponse<TResponse> Execute(TRequest parameter);
+        public abstract ServiceResponse<TResponse> Execute(TRequest parameter);
 
-        public CieloResponse<TResponse> Send(RestClient client, RestRequest request, string parseJsonOfSpecificPropertyName = null)
+        public ServiceResponse<TResponse> Send(RestClient client, RestRequest request, string parseJsonOfSpecificPropertyName = null)
         {
             request.AddHeader("User-Agent", "CieloEcommerce/3.0 .NET SDK");
             request.AddHeader("MerchantId", Merchant.Id);
@@ -31,10 +32,10 @@ public abstract class AbstractSaleRequest<TRequest, TResponse> where TResponse :
             return Parse((int)response.StatusCode, response.Content, parseJsonOfSpecificPropertyName);
         }
 
-        private static CieloResponse<TResponse> Parse(int statusCode, string content, string parseJsonOfSpecificPropertyName)
+        private static ServiceResponse<TResponse> Parse(int statusCode, string content, string parseJsonOfSpecificPropertyName)
         {
             var response = default(TResponse);
-            var errors = new List<CieloError>();
+            var errors = new List<ServiceError>();
 
             switch (statusCode)
             {
@@ -46,16 +47,16 @@ public abstract class AbstractSaleRequest<TRequest, TResponse> where TResponse :
                     
                     break;
                 case 400:
-                    errors.AddRange(JsonConvert.DeserializeObject<List<CieloError>>(content));
+                    errors.AddRange(JsonConvert.DeserializeObject<List<ServiceError>>(content));
                     break;
                 case 404:
-                    throw new CieloRequestException(404, "Not found");
+                    throw new ServiceRequestException(404, "Not found");
                 default:
-                    errors.Add(new CieloError(0, $"Unknown status {statusCode}"));
+                    errors.Add(new ServiceError(0, $"Unknown status {statusCode}"));
                     break;
             }
 
-            return new CieloResponse<TResponse>(response, errors);
+            return new ServiceResponse<TResponse>(response, errors);
         }
 
         public static T DeserializeSpecificProperty<T>(string propertyName, string json)

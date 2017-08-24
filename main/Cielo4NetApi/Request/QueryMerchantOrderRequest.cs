@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cielo4NetApi.Services;
 using RestSharp;
 
 namespace Cielo4NetApi.Request
@@ -9,7 +10,7 @@ namespace Cielo4NetApi.Request
         {
         }
 
-        public override CieloResponse<List<MerchantOrder>> Execute(string id)
+        public override ServiceResponse<List<MerchantOrder>> Execute(string id)
         {
             var request = new RestRequest($"1/sales?merchantOrderId={id}", Method.GET)
             {

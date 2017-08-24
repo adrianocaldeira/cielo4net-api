@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Cielo4NetApi.Services;
+using RestSharp;
 
 namespace Cielo4NetApi.Request
 {
@@ -8,7 +9,7 @@ namespace Cielo4NetApi.Request
         {
         }
 
-        public override CieloResponse<Sale> Execute(Sale sale)
+        public override ServiceResponse<Sale> Execute(Sale sale)
         {
             var request = new RestRequest("1/sales/", Method.POST)
             {
