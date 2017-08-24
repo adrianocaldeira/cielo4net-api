@@ -5,14 +5,6 @@ namespace Cielo4NetApi.Services
 {
     public class SaleService : Service
     {
-        public SaleService(Merchant merchant) : base(merchant)
-        {
-        }
-
-        public SaleService(Merchant merchant, Environment environment) : base(merchant, environment)
-        {
-        }
-
         public ServiceResponse<Sale> Create(Sale sale)
         {
             var request = new CreateSaleRequest(Merchant, Environment);

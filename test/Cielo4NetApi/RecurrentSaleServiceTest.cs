@@ -14,11 +14,11 @@ namespace Cielo4NetApi
         [SetUp]
         protected void SetUp()
         {
-            var merchant = new Merchant("7b47a500-fece-487b-ae02-5ef034a9fc1d", "UOXJOMKHNRLNXFTVNRJHUTNMPVMFLOKVDRQZKZLE");
-            var environment = Environment.Sandbox();
+            //var merchant = new Merchant("7b47a500-fece-487b-ae02-5ef034a9fc1d", "UOXJOMKHNRLNXFTVNRJHUTNMPVMFLOKVDRQZKZLE");
+            //var environment = Environment.Sandbox();
 
-            Service = new RecurrentSaleService(merchant, environment);
-            SaleService = new SaleService(merchant, environment);
+            Service = new RecurrentSaleService();
+            SaleService = new SaleService();
         }
 
         [Test]

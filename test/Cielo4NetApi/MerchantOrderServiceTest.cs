@@ -11,8 +11,7 @@ namespace Cielo4NetApi
         [SetUp]
         protected void SetUp()
         {
-            Service = new MerchantOrderService(new Merchant("7b47a500-fece-487b-ae02-5ef034a9fc1d", "UOXJOMKHNRLNXFTVNRJHUTNMPVMFLOKVDRQZKZLE"),
-                Environment.Sandbox());
+            Service = new MerchantOrderService();
         }
 
         [Test]

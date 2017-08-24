@@ -5,14 +5,6 @@ namespace Cielo4NetApi.Services
 {
     public class RecurrentSaleService : Service
     {
-        public RecurrentSaleService(Merchant merchant) : base(merchant)
-        {
-        }
-
-        public RecurrentSaleService(Merchant merchant, Environment environment) : base(merchant, environment)
-        {
-        }
-
         public ServiceResponse<RecurrentSale> Get(Guid id)
         {
             var request = new GetRecurrentSaleRequest(Merchant, Environment);
