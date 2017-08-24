@@ -47,7 +47,15 @@ public abstract class AbstractSaleRequest<TRequest, TResponse> where TResponse :
                     
                     break;
                 case 400:
-                    errors.AddRange(JsonConvert.DeserializeObject<List<ServiceError>>(content));
+                    try
+                    {
+                        errors.AddRange(JsonConvert.DeserializeObject<List<ServiceError>>(content));
+                    }
+                    catch
+                    {
+                        throw new ServiceRequestException(400, content);
+                    }
+
                     break;
                 case 404:
                     throw new ServiceRequestException(404, "Not found");
